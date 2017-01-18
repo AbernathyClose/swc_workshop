@@ -1,6 +1,7 @@
 # Notes from Software Carpentry Workshop
 # Date: January 17-18, 2916
 # Adding a new line here
+# Purpose: This files runs an analysis on the gapminder data
 
 # Open ggplot
 library(ggplot2)
