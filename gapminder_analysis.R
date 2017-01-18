@@ -2,8 +2,20 @@
 # Date: January 17-18, 2916
 # Adding a new line here
 
-download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearD")
+# Open ggplot
+library(ggplot2)
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "gapminder-FiveYearData.csv")
 gapminder <- read.csv("gapminder-FiveYearData.csv")
+
+# Create plot with life expenctency 
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent)) + geom_point()
+
+#Create different panel for each continent on the plot
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent)) + geom_point() + facet_grid(.~continent)
+
+# save plot - name the file here
+ggsave(filename = "year_vs_lifeExp_percent.png", width = 5, height = 4, units = "in")
+
 head(gapminder)
 colnames(gapminder)
 str(gapminder)
